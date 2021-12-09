@@ -4,7 +4,7 @@ Python script to generate vector graphics of an oriented lattice unit cell
 ## Examples
 
 ```
-unitcell --unit hexagonal --eulers 12 23 34 --axes --crystalvector 1 0.4823 0 --perspective
+unitcell --type hexagonal --eulers 12 23 34 --axes --crystalvector 1 0.4823 0 --perspective
 ```
 
 ![hexagonal unitcell](examples/unitcell_hexagonal_12_23_34.png)

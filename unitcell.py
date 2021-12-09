@@ -24,8 +24,8 @@ Requires a working setup of 'sketch' (by Gene Ressler)
 and 'LaTeX' with 'TikZ' extension.
 """)
 geom = parser.add_argument_group('Geometry')
-geom.add_argument('--unitcell', default='cubic',
-                  help=f'type of unitcell [{listify(unitcell_choices)}]')
+geom.add_argument('--type', default='cubic',
+                  help=f'type of unitcell {{{listify(unitcell_choices)}}}')
 geom.add_argument('--eulers', nargs=3, type=float, default=[0,0,0], metavar=('phi1','Phi','phi2'),
                   help='3-1-3 Euler angles')
 geom.add_argument('--radians', action='store_true',
@@ -78,16 +78,16 @@ args.up = np.array(args.up)
 args.eye = np.array(args.eye)
 if args.batch is not None: args.batch = Path(args.batch)
 
-if args.unitcell not in unitcell_choices:
-  parser.error(f'"{args.unitcell}" not a valid choice for unitcell [{listify(unitcell_choices)}].')
+if args.type not in unitcell_choices:
+  parser.error(f'"{args.type}" not a valid choice for unitcell [{listify(unitcell_choices)}].')
 
 if np.linalg.norm(np.cross(args.eye,args.up)) < 1.0e-10:
   parser.error('Eye position and up vector cannot be collinear.')
 
 if args.axes: args.globalaxes = args.crystalaxes = args.axes
 
-if args.c is None: args.c = {'hexagonal':1.633}.get(args.unitcell,1)
-if args.b is None: args.b = {                 }.get(args.unitcell,1)
+if args.c is None: args.c = {'hexagonal':1.633}.get(args.type,1)
+if args.b is None: args.b = {                 }.get(args.type,1)
 
 opacity = np.clip(args.opacity,0,1)
 
@@ -232,12 +232,12 @@ if args.batch is None or not args.batch.exists():
                                            ) if args.globalvector  else '') +
                           unitcell.format(euler = eulerInts,
                                           d = [0,0],
-                                          celltype = args.unitcell,
+                                          celltype = args.type,
                                           ),
                      )
   cmd += footer
 
-  filename = Path(args.name if args.name else 'unitcell_{0}_{1}_{2}_{3}'.format(args.unitcell,*eulerInts))
+  filename = Path(args.name if args.name else 'unitcell_{0}_{1}_{2}_{3}'.format(args.type,*eulerInts))
 
 else:
 
@@ -268,7 +268,7 @@ else:
     rotations[listify(eulerInts,glue='#')] = rotation.format(*eulerInts)
     cells.append(unitcell.format(euler=eulerInts,
                                  d=scale*(point[[coords['x'][0],coords['x'][0]]]-centre),
-                                 celltype=args.unitcell)
+                                 celltype=args.type)
                 )
     if args.label:
       labels.append(label.format(num=counter,
@@ -286,7 +286,7 @@ else:
                    )
   cmd += footer
 
-  filename = Path(f'unitcell_{args.unitcell}_{args.batch.stem}')
+  filename = Path(f'unitcell_{args.type}_{args.batch.stem}')
 
 filename.with_suffix('.sk').write_text(cmd)
 
