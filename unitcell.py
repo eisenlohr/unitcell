@@ -192,7 +192,7 @@ def EulerRotation_{0}_{1}_{2}
 unitcell      = 'put {{ [[EulerRotation_{euler[0]}_{euler[1]}_{euler[2]}]] then translate([{d[0]},{d[1]},0]) }} {{unitcell_{celltype}}}'
 latticevector = 'put {{ [[EulerRotation_{euler[0]}_{euler[1]}_{euler[2]}]] then translate([{d[0]},{d[1]},0]) }} {{ line[color=blue ,line width=3pt] (O)({vector}) }}'
 labvector     = 'put {{                                                         translate([{d[0]},{d[1]},0]) }} {{ line[color=green,line width=3pt] (O)({vector}) }}'
-localaxes     = 'put {{ [[EulerRotation_{euler[0]}_{euler[1]}_{euler[2]}]] then translate([{d[0]},{d[1]},0]) then scale(1.25) }} {{ {{localSystemAxes}} }}'
+localaxes     = 'put {{ [[EulerRotation_{euler[0]}_{euler[1]}_{euler[2]}]] then translate([{d[0]},{d[1]},0]) then scale(1.25) }} {{localSystemAxes}}'
 globalaxes    = '{globalSystemAxes}'
 label         = 'special |\\node at #1 {{{num}}};|({d[0]},{d[1]},0)'
 
