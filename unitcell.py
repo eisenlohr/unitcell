@@ -120,9 +120,9 @@ line[color=black,line width=0.5pt] (O)(px)
 line[color=black,line width=0.5pt] (O)(py)
 line[color=black,line width=0.5pt] (O)(pz)
 special |
- \path #1 -- #2 node[color=black,font=\\footnotesize,pos=1.25] {{$x$}};
- \path #1 -- #3 node[color=black,font=\\footnotesize,pos=1.25] {{$y$}};
- \path #1 -- #4 node[color=black,font=\\footnotesize,pos=1.25] {{$z$}};
+ \\path #1 -- #2 node[color=black,font=\\footnotesize,pos=1.25] {{$x$}};
+ \\path #1 -- #3 node[color=black,font=\\footnotesize,pos=1.25] {{$y$}};
+ \\path #1 -- #4 node[color=black,font=\\footnotesize,pos=1.25] {{$z$}};
 | (O)(px)(py)(pz)
 
 }}
@@ -135,9 +135,9 @@ line[color=red,line width=1.5pt] (O)(px)
 line[color=red,line width=1.5pt] (O)(py)
 line[color=red,line width=1.5pt] (O)(pz)
 special |
- \path #1 -- #2 node[color=red,font=\\footnotesize,pos=1.25] {{$a$}};
- \path #1 -- #3 node[color=red,font=\\footnotesize,pos=1.25] {{$b$}};
- \path #1 -- #4 node[color=red,font=\\footnotesize,pos=1.25] {{$c$}};
+ \\path #1 -- #2 node[color=red,font=\\footnotesize,pos=1.25] {{$a$}};
+ \\path #1 -- #3 node[color=red,font=\\footnotesize,pos=1.25] {{$b$}};
+ \\path #1 -- #4 node[color=red,font=\\footnotesize,pos=1.25] {{$c$}};
 | (O)(px)(py)(pz)
 
 }}
